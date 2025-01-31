@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Form</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="form-container">
+        <h2>Data Form</h2>
+        <form id="myForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" required>
+
+            <label> Choose Your Favorite Animal:</label>
+            <div id="animalSelection">
+                <label>
+                    <input type="radio" name="animal" value="cat" required>
+                    <img src="/images/cat.jpg" alt="Cat">
+                    Cat
+                </label>
+                <label>
+                    <input type="radio" name="animal" value="rabbit" required>
+                    <img src="/images/rabbit.png" alt="Rabbit">
+                    Rabbit
+                </label>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="result-container">
+        <h2>Results</h2>
+        <div id="result" class="result">
+            <p><strong>Name:</strong> <span id="resultName"></span></p>
+            <p><strong>Age:</strong> <span id="resultAge"></span></p>
+            <p><strong>Favorite Animal:</strong> <span id="resultAnimal"></span></p>
+        </div>
+    </div>
+</div>
+
+<script src="/js/app.js"></script>
+
+</body>
+</html>
