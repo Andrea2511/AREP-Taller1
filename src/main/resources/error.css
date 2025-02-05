@@ -1,28 +1,31 @@
-
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f2f2f2;
-    color: #333;
+    background-color: #fdf0f6; /* Fondo suave rosado */
+    color: #555; /* Color del texto oscuro pero suave */
     text-align: center;
     padding: 50px;
     margin: 0;
 }
+
 h1 {
     font-size: 100px;
-    color: #e74c3c;
+    color: #e07ea6; /* Rosa suave */
     margin-bottom: 20px;
 }
+
 h2 {
     font-size: 24px;
-    color: #555;
+    color: #d14791; /* Rosa más intenso pero suave */
 }
+
 .message {
     font-size: 18px;
-    color: #777;
+    color: #bb6b8c; /* Un rosa medio */
     margin-top: 20px;
 }
+
 .button {
-    background-color: #ce4b41;
+    background-color: #f08fb6; /* Rosa suave para el fondo */
     color: #fff;
     padding: 10px 20px;
     text-decoration: none;
@@ -31,9 +34,11 @@ h2 {
     margin-top: 30px;
     display: inline-block;
 }
+
 .button:hover {
-    background-color: #e74c3c;
+    background-color: #e07ea6; /* Color más fuerte al pasar el mouse */
 }
+
 .container {
     max-width: 600px;
     margin: 0 auto;

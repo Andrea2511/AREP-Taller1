@@ -70,13 +70,37 @@ public class HttpServer {
         System.out.println("Serving static file: " + path);
         File file = new File(WEB_ROOT, path);
         System.out.println(file.getAbsolutePath());
+        File notFoundFile = new File(WEB_ROOT, "error.html");
 
         if (!file.exists() || file.isDirectory()) {
-            String response = "HTTP/1.1 404 Not Found\r\n" +
-                    "Content-Type: text/plain\r\n" +
-                    "\r\n" +
-                    "404 Not Found";
-            out.write(response.getBytes());
+            // Asegúrate de que el archivo 404.html existe
+            if (notFoundFile.exists()) {
+                // Leer el archivo 404.html y enviarlo como respuesta
+                BufferedReader reader = new BufferedReader(new FileReader(notFoundFile));
+                StringBuilder responseContent = new StringBuilder();
+                String line;
+
+                while ((line = reader.readLine()) != null) {
+                    responseContent.append(line).append("\n");
+                }
+
+                reader.close();
+
+                String response = "HTTP/1.1 404 Not Found\r\n" +
+                        "Content-Type: text/html\r\n" +  // Cambié el tipo a text/html
+                        "Content-Length: " + responseContent.length() + "\r\n" +
+                        "\r\n" +
+                        responseContent.toString();
+
+                out.write(response.getBytes());
+            } else {
+                // Si no se encuentra el archivo 404.html, manda un error genérico
+                String response = "HTTP/1.1 404 Not Found\r\n" +
+                        "Content-Type: text/plain\r\n" +
+                        "\r\n" +
+                        "404 Not Found";
+                out.write(response.getBytes());
+            }
         } else {
             String contentType = getContentType(file);
             byte[] fileData = Files.readAllBytes(file.toPath());
